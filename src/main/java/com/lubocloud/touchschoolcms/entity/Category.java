@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -27,6 +29,10 @@ public class Category {
     
 	@Column(name="type", nullable=false)
     private CategoryType type;
+	
+	@ManyToOne
+	@JoinColumn(name="parentId")
+	Category parentCategory;
 
 	public Category(){
 
@@ -54,5 +60,13 @@ public class Category {
 
 	public void setType(CategoryType type) {
 		this.type = type;
+	}
+
+	public Category getParentCategory() {
+		return parentCategory;
+	}
+
+	public void setParentCategory(Category parent) {
+		this.parentCategory = parent;
 	}
 }

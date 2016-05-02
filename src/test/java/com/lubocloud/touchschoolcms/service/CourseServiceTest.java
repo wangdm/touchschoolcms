@@ -2,6 +2,8 @@ package com.lubocloud.touchschoolcms.service;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,40 +20,57 @@ public class CourseServiceTest {
 	CourseService courseService;
 	
 	@Test
-	public void testCourseService() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	public void testAddCourseCategory() {
 		Category cat = new Category();
-		cat.setName("高中");
+		cat.setName("小学");
+		cat.setParentCategory(courseService.getCourseCategory(0));
 		courseService.addCourseCategory(cat);
 	}
 
 	@Test
 	public void testDelCourseCategory() {
-		fail("Not yet implemented");
+		courseService.delCourseCategory(3);;
 	}
 
 	@Test
 	public void testEditCourseCategory() {
-		fail("Not yet implemented");
+		Category cat = courseService.getCourseCategory(4);
+		if(cat!=null)
+		{
+			cat.setName("初中");
+			courseService.editCourseCategory(cat);
+		}
 	}
 
 	@Test
 	public void testGetCourseCategory() {
-		fail("Not yet implemented");
+		Category cat = courseService.getCourseCategory(4);
+		if(null!=cat){
+			System.out.println("id: "+cat.getId()+"\tname: "+cat.getName());
+		}
+	}
+
+	@Test
+	public void testGetAllCourseCategory() {
+		List<Category> catlist = courseService.getAllCourseCategory();
+		if(null!=catlist){
+			for(int i=0; i<catlist.size();i++){
+				Category cat = catlist.get(i);
+				System.out.println("id: "+cat.getId()+"\tname: "+cat.getName());
+			}
+		}
 	}
 
 	@Test
 	public void testGetAllChildrenCategory() {
-		fail("Not yet implemented");
+		String json = courseService.getAllChildrenCategoryWithJson(0);
+		System.out.println(json);
 	}
 
 	@Test
 	public void testGetDirectChildrenCategory() {
-		fail("Not yet implemented");
+		String json = courseService.getDirectChildrenCategoryWithJson(5);
+		System.out.println(json);
 	}
 
 	@Test

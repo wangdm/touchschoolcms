@@ -2,6 +2,7 @@ package com.lubocloud.touchschoolcms.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lubocloud.touchschoolcms.dao.GroupDao;
 import com.lubocloud.touchschoolcms.dao.RoleDao;
@@ -10,7 +11,8 @@ import com.lubocloud.touchschoolcms.entity.Group;
 import com.lubocloud.touchschoolcms.entity.Role;
 import com.lubocloud.touchschoolcms.entity.User;
 
-@Service
+@Service("userService")
+@Transactional
 public class UserService {
 	
 	@Autowired

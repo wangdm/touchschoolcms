@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lubocloud.touchschoolcms.dao.ScheduleDao;
 import com.lubocloud.touchschoolcms.entity.Schedule;
 
-@Service
+@Service("scheduleService")
+@Transactional
 public class ScheduleService {
 	
 	@Autowired

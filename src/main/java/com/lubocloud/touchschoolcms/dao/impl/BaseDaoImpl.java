@@ -10,7 +10,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.lubocloud.touchschoolcms.dao.BaseDao;
 
@@ -19,7 +19,7 @@ import com.lubocloud.touchschoolcms.dao.BaseDao;
  * @version 1.0
  * @created 15-4��-2016 18:48:41
  */
-@Component
+@Repository
 @SuppressWarnings("unchecked")
 public class BaseDaoImpl<T> implements BaseDao<T> {
 
@@ -30,7 +30,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		String className = fullClassName.substring(fullClassName.lastIndexOf('.')+1);
 		if(!"BaseDaoImpl".equals(className))
 		{
-			System.out.println("this class name is "+ className);
+			//System.out.println("this class name is "+ className);
 			ParameterizedType type = (ParameterizedType) this.getClass().getGenericSuperclass();  
 	        clazz = (Class<T>) type.getActualTypeArguments()[0];
 		}

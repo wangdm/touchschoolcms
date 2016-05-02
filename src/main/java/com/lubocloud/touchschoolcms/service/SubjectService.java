@@ -2,6 +2,7 @@ package com.lubocloud.touchschoolcms.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lubocloud.touchschoolcms.dao.ChapterDao;
 import com.lubocloud.touchschoolcms.dao.PublisherDao;
@@ -12,7 +13,8 @@ import com.lubocloud.touchschoolcms.entity.Publisher;
 import com.lubocloud.touchschoolcms.entity.Subject;
 import com.lubocloud.touchschoolcms.entity.Textbook;
 
-@Service
+@Service("subjectService")
+@Transactional
 public class SubjectService {
 	
 	@Autowired
