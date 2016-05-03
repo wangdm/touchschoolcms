@@ -21,7 +21,7 @@ public class Lesson {
 	@Column(name="name", nullable=false, unique=true, length=20)
 	private String name;
 	
-	@Column(name="index", nullable=false, unique=true)
+	@Column(name="idx", nullable=false, unique=true)
 	private int index;
     
     @Column(name="starttime", nullable=false, unique=true)

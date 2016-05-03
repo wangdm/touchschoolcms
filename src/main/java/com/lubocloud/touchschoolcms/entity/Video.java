@@ -32,6 +32,10 @@ public class Video {
     private Course course;
     
     @ManyToOne
+    @JoinColumn(name="categoryId")
+    private Category category;
+    
+    @ManyToOne
     @JoinColumn(name="subjectId", nullable=false)
     private Subject subject;
     
@@ -72,6 +76,14 @@ public class Video {
 
 	public void setCourse(Course course) {
 		this.course = course;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public Subject getSubject() {

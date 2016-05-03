@@ -31,6 +31,10 @@ public class Course {
     private User user;
     
     @ManyToOne
+    @JoinColumn(name="categoryId")
+    private Category category;
+    
+    @ManyToOne
     @JoinColumn(name="subjectId", nullable=false)
     private Subject subject;
     
@@ -72,6 +76,14 @@ public class Course {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public Subject getSubject() {

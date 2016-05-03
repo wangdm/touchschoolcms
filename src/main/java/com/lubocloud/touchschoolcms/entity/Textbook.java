@@ -22,11 +22,15 @@ public class Textbook {
 	private String title;
     
     @ManyToOne
-    @JoinColumn(name="publisherId")
+    @JoinColumn(name="categoryId", referencedColumnName="id")
+    private Category category;
+    
+    @ManyToOne
+    @JoinColumn(name="publisherId", referencedColumnName="id")
     private Publisher publiser;
     
     @ManyToOne
-    @JoinColumn(name="subjectId")
+    @JoinColumn(name="subjectId", referencedColumnName="id")
     private Subject subject;
 
 	public Textbook(){
@@ -47,6 +51,14 @@ public class Textbook {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public Publisher getPubliser() {

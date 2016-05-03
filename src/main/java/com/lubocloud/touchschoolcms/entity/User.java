@@ -1,5 +1,7 @@
 package com.lubocloud.touchschoolcms.entity;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,105 +35,91 @@ public class User {
 	@Column(name="nickname")
 	private String nickname;
 	
+	@Column(name="register_time")
+	private Timestamp registerTime;
+	
 	@ManyToOne
 	@JoinColumn(name="role_id", referencedColumnName="id")
 	private Role role;
+	
+	@ManyToOne
+	@JoinColumn(name="gid", referencedColumnName="gid")
+	private Group group;
 
 	public User(){
 
 	}
 
-	/**
-	 * 
-	 * @exception Throwable
-	 */
-	public void finalize()
-	  throws Throwable{
-
+	public int getUid() {
+		return uid;
 	}
 
-	public String getEmail(){
-		return this.email;
-	}
-
-	public String getNickname(){
-		return this.nickname;
-	}
-
-	public String getPassword(){
-		return this.password;
-	}
-
-	public String getPhone(){
-		return this.phone;
-	}
-
-	public Role getRole(){
-		return this.role;
-	}
-
-	public int getUid(){
-		return this.uid;
-	}
-
-	public String getUsername(){
-		return this.username;
-	}
-
-	/**
-	 * 
-	 * @param email
-	 */
-	public void setEmail(String email){
-		this.email = email;
-	}
-
-	/**
-	 * 
-	 * @param nickname
-	 */
-	public void setNickname(String nickname){
-		this.nickname = nickname;
-	}
-
-	/**
-	 * 
-	 * @param password
-	 */
-	public void setPassword(String password){
-		this.password = password;
-	}
-
-	/**
-	 * 
-	 * @param phone
-	 */
-	public void setPhone(String phone){
-		this.phone = phone;
-	}
-
-	/**
-	 * 
-	 * @param role
-	 */
-	public void setRole(Role role){
-		this.role = role;
-	}
-
-	/**
-	 * 
-	 * @param uid    uid
-	 */
-	public void setUid(int uid){
+	public void setUid(int uid) {
 		this.uid = uid;
 	}
 
-	/**
-	 * 
-	 * @param username
-	 */
-	public void setUsername(String username){
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public Timestamp getRegisterTime() {
+		return registerTime;
+	}
+
+	public void setRegisterTime(Timestamp register_time) {
+		this.registerTime = register_time;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	public Group getGroup() {
+		return group;
+	}
+
+	public void setGroup(Group group) {
+		this.group = group;
 	}
 
 }

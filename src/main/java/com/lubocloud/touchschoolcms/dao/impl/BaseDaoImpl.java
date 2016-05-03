@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import com.lubocloud.touchschoolcms.dao.BaseDao;
+import com.lubocloud.touchschoolcms.utils.Page;
 
 /**
  * @author wangdm
@@ -90,6 +91,16 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		this.getSession().update(entity);
 	}
 
+	@Override
+	public List<T> listAll() {
+		Session s = this.getSession();
+		if(s!=null){
+			Criteria c = s.createCriteria(this.clazz);
+			return c.list();
+		}
+		return null;
+	}
+
 	/**
 	 * 
 	 * @param column
@@ -98,8 +109,16 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	@Override
 	public List<T> findByColumn(String column, Serializable value) {
 		Criteria c = this.getSession().createCriteria(this.clazz);
-		c.add(Restrictions.eq(column,value));
+		if(value==null){
+			c.add(Restrictions.isNull(column));
+		}else{
+			c.add(Restrictions.eq(column,value));
+		}
 		return c.list();
 	}
 
+	@Override
+	public List<T> findByCriteria(Criteria c, Page p) {
+		return null;
+	}
 }

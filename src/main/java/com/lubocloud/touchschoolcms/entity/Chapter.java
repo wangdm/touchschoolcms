@@ -2,6 +2,7 @@ package com.lubocloud.touchschoolcms.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,14 +23,18 @@ public class Chapter {
 	@Column(name="id", nullable=false, unique=true)
 	private int id;
 	
-	@Column(name="name", nullable=false, unique=true, length=20)
-	private String name;
+	@Column(name="title", nullable=false, unique=true, length=60)
+	private String title;
+	
+    @ManyToOne
+    @JoinColumn(name="textbookId", nullable=false)
+    private Textbook textbook;
     
     @ManyToOne
     @JoinColumn(name="parentId")
     private Chapter parentChapter;
     
-    @OneToMany
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="parentChapter")
     private List<Chapter> childrenChapterList;
     
     @OneToOne
@@ -48,12 +53,20 @@ public class Chapter {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Textbook getTextbook() {
+		return textbook;
+	}
+
+	public void setTextbook(Textbook textbook) {
+		this.textbook = textbook;
 	}
 
 	public Chapter getParentChapter() {
