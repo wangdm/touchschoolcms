@@ -38,21 +38,21 @@ public class AdminController {
 	@RequestMapping(value="/listcoursecategory")
 	public ModelAndView listCourseCategory()
 	{
-        ModelAndView modal = new ModelAndView("action-listcategory");
+        ModelAndView modal = new ModelAndView("admin/action-listcategory");
 		return modal;
 	}
     
     @RequestMapping(value="/listcourse")
 	public ModelAndView listCourse()
 	{
-        ModelAndView modal = new ModelAndView("action-listcourse");
+        ModelAndView modal = new ModelAndView("admin/action-listcourse");
 		return modal;
 	}
     
     @RequestMapping(value="/listvideo")
 	public ModelAndView listVideo()
 	{
-        ModelAndView modal = new ModelAndView("action-listvideo");
+        ModelAndView modal = new ModelAndView("admin/action-listvideo");
 		return modal;
 	}
     
@@ -62,35 +62,42 @@ public class AdminController {
     @RequestMapping(value="/listgroupcategory")
 	public ModelAndView listGroupCategory()
 	{
-        ModelAndView modal = new ModelAndView("action-listcategory");
+        ModelAndView modal = new ModelAndView("admin/action-listcategory");
 		return modal;
 	}
     
     @RequestMapping(value="/listgroup")
 	public ModelAndView listGroup()
 	{
-        ModelAndView modal = new ModelAndView("action-listgroup");
+        ModelAndView modal = new ModelAndView("admin/action-listgroup");
+		return modal;
+	}
+    
+    @RequestMapping(value="/listrole")
+	public ModelAndView listRole()
+	{
+        ModelAndView modal = new ModelAndView("admin/action-listrole");
 		return modal;
 	}
     
     @RequestMapping(value="/listuser")
 	public ModelAndView listUser()
 	{
-        ModelAndView modal = new ModelAndView("action-listuser");
+        ModelAndView modal = new ModelAndView("admin/action-listuser");
 		return modal;
 	}
     
     @RequestMapping(value="/liststudent")
 	public ModelAndView listStudent()
 	{
-        ModelAndView modal = new ModelAndView("action-liststudent");
+        ModelAndView modal = new ModelAndView("admin/action-liststudent");
 		return modal;
 	}
     
     @RequestMapping(value="/listteacher")
 	public ModelAndView listTeacher()
 	{
-        ModelAndView modal = new ModelAndView("action-listteacher");
+        ModelAndView modal = new ModelAndView("admin/action-listteacher");
 		return modal;
 	}
     
@@ -100,38 +107,70 @@ public class AdminController {
     @RequestMapping(value="/listpublisher")
 	public ModelAndView listPublisher()
 	{
-        ModelAndView modal = new ModelAndView("action-listpublisher");
+        ModelAndView modal = new ModelAndView("admin/action-listpublisher");
 		return modal;
 	}
     
     @RequestMapping(value="/listsubject")
 	public ModelAndView listSuject()
 	{
-        ModelAndView modal = new ModelAndView("action-listsubject");
+        ModelAndView modal = new ModelAndView("admin/action-listsubject");
 		return modal;
 	}
     
     @RequestMapping(value="/listtextbook")
 	public ModelAndView listTextbook()
 	{
-        ModelAndView modal = new ModelAndView("action-listtextbook");
+        ModelAndView modal = new ModelAndView("admin/action-listtextbook");
 		return modal;
 	}
     
 	/////////////////////////////////////////////////////////////////////////////////////
     //// 课表管理
     /////////////////////////////////////////////////////////////////////////////////////
+    
+    @RequestMapping(value="/listlesson")
+	public ModelAndView listLesson()
+	{
+        ModelAndView modal = new ModelAndView("admin/action-listlesson");
+		return modal;
+	}
+    
     @RequestMapping(value="/queryteacherschedule")
 	public ModelAndView queryTeacherSchedule()
 	{
-        ModelAndView modal = new ModelAndView("action-queryteacherschedule");
+        ModelAndView modal = new ModelAndView("admin/action-queryteacherschedule");
 		return modal;
 	}
     
     @RequestMapping(value="/querygroupschedule")
 	public ModelAndView queryGroupSchedule()
 	{
-        ModelAndView modal = new ModelAndView("action-querygroupschedule");
+        ModelAndView modal = new ModelAndView("admin/action-querygroupschedule");
+		return modal;
+	}
+    
+    @RequestMapping(value="/queryclassschedule")
+	public ModelAndView queryClassSchedule()
+	{
+        ModelAndView modal = new ModelAndView("admin/action-queryclassschedule");
+		return modal;
+	}
+    
+	/////////////////////////////////////////////////////////////////////////////////////
+    //// 设备管理
+    /////////////////////////////////////////////////////////////////////////////////////
+    @RequestMapping(value="/listclassroom")
+	public ModelAndView listClassroom()
+	{
+        ModelAndView modal = new ModelAndView("admin/action-listclassroom");
+		return modal;
+	}
+    
+    @RequestMapping(value="/listrbdevice")
+	public ModelAndView listRBDevice()
+	{
+        ModelAndView modal = new ModelAndView("admin/action-listrbdevice");
 		return modal;
 	}
 }
