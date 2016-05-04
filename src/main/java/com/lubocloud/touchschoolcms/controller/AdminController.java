@@ -25,7 +25,13 @@ public class AdminController {
     
 	@Autowired
 	ScheduleService scheduleService;
-    
+
+	@RequestMapping(value="/")
+	public ModelAndView dashboard()
+	{
+        ModelAndView modal = new ModelAndView("admin/index");
+		return modal;
+	}
 	/////////////////////////////////////////////////////////////////////////////////////
     //// 课程管理
     /////////////////////////////////////////////////////////////////////////////////////
