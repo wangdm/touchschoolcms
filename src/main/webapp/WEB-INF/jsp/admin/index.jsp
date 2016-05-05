@@ -108,13 +108,15 @@
 
 <script type="text/javascript">
 $(function(){
+	contextPath = "<%=application.getContextPath()%>";
     resizeDashboard();
 	$(window).resize(function(){
 	    resizeDashboard();
 	});
 	$("#dashboard_menu li").on("click", function(){
 		var action = "<%=application.getContextPath()%>/admin/"+$(this).attr("data-action");
-		doAdminAction(action);
+		doAdminAction(action,$("#dashboard_content"));
+		var data = getAllChildrenCategory(0);
 	})
 });
 </script>

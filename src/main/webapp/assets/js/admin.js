@@ -1,7 +1,8 @@
+var contextPath;
+
 function resizeDashboard(){
 	var height = $(window).height()-58;
 	var width = $(window).width()-$("#dashboard_menu").width();
-	console.log(width);
 	$("#dashboard_menu").css("height", height);
 	$("#dashboard_menu").css("max-height", height);
 	$("#dashboard_content").css("height", height);
@@ -10,13 +11,79 @@ function resizeDashboard(){
 	$("#dashboard_content").css("max-width", width);
 }
 
-function doAdminAction(action){
+function doAdminAction(action,node){
     $.ajax({
         "url": action,
         "type": "get",
     }).success(function(data){
-        $("#dashboard_content").html(data);
+    	node.html(data);
     }).fail(function(){
     	console.log("connect "+this.url+" failed!");
+    });
+}
+
+function addCategory(name){
+	var cat = {"name":name};
+    $.ajax({
+        "url": contextPath+"/v1/categorys",
+        "type":"POST",
+        "data":JSON.stringify(cat), 
+        "dataType":"json",
+        "contentType":"application/json",
+    }).success(function(data){
+    	console.log(data);
+    }).fail(function(){
+        console.log("connect "+this.url+" failed!");
+    });
+}
+
+function editCategory(id,name){
+	var cat = {"name":name,"id":id};
+    $.ajax({
+        "url": contextPath+"/v1/categorys/"+id,
+        "type":"PUT",
+        "data":JSON.stringify(cat), 
+        "dataType":"json",
+        "contentType":"application/json",
+    }).success(function(data){
+    	console.log(data);
+    }).fail(function(){
+        console.log("connect "+this.url+" failed!");
+    });
+}
+
+function delCategory(id){
+    $.ajax({
+        "url": contextPath+"/v1/categorys/"+id,
+        "type":"DELETE",
+        "contentType":"application/json",
+    }).success(function(data){
+    	console.log(data);
+    }).fail(function(){
+        console.log("connect "+this.url+" failed!");
+    });
+}
+
+function getAllChildrenCategory(id){
+    $.ajax({
+        "url": contextPath+"/v1/allchildrencategorys/"+id,
+        "type": "GET",
+    }).success(function(data){
+    	console.log(data);
+    }).fail(function(){
+    	console.log("connect "+this.url+" failed!");
+    	return null;
+    });
+}
+
+function getDirectChildrenCategory(id){
+    $.ajax({
+        "url": contextPath+"/v1/directchildrencategorys/"+id,
+        "type": "GET",
+    }).success(function(data){
+    	console.log(data);
+    }).fail(function(){
+    	console.log("connect "+this.url+" failed!");
+    	return null;
     });
 }
