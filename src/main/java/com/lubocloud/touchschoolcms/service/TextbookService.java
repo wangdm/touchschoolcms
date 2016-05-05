@@ -6,82 +6,31 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lubocloud.touchschoolcms.dao.ChapterDao;
 import com.lubocloud.touchschoolcms.dao.PublisherDao;
-import com.lubocloud.touchschoolcms.dao.SubjectDao;
 import com.lubocloud.touchschoolcms.dao.TextbookDao;
 import com.lubocloud.touchschoolcms.entity.Chapter;
 import com.lubocloud.touchschoolcms.entity.Publisher;
-import com.lubocloud.touchschoolcms.entity.Subject;
 import com.lubocloud.touchschoolcms.entity.Textbook;
 
-@Service("subjectService")
+@Service("textbookService")
 @Transactional
-public class SubjectService {
-	
-	@Autowired
-	private SubjectDao subjectDao;
-    
-	@Autowired
-	private PublisherDao publisherDao;
-    
+public class TextbookService {
+
 	@Autowired
 	private TextbookDao textbookDao;
-    
+
+	@Autowired
+	private PublisherDao publisherDao;
+	
 	@Autowired
 	private ChapterDao chapterDao;
 	
-	public SubjectService()
+	public TextbookService()
 	{
 	}
-
-	/*
-	 *  Subject
-	 */
-	public void addSubject(Subject subject)
-	{
-		subjectDao.save(subject);
-	}
-	
-	public void delSubject(int subjectId)
-	{
-		subjectDao.delete(subjectId);
-	}
-	
-	public void editSubject(Subject subject)
-	{
-		subjectDao.update(subject);
-	}
-	
-	public Subject findSubject(int subjectId)
-	{
-		return subjectDao.findById(subjectId);
-	}
-
-	/*
-	 *  Publisher
-	 */
-	public void addPublisher(Publisher publisher)
-	{
-		publisherDao.save(publisher);
-	}
-	
-	public void delPublisher(int publisherId)
-	{
-		publisherDao.delete(publisherId);
-	}
-	
-	public void editPublisher(Publisher publisher)
-	{
-		publisherDao.update(publisher);
-	}
-	
-	public Publisher findPublisher(int publisherId)
-	{
-		return publisherDao.findById(publisherId);
-	}
-
 	/*
 	 *  Textbook
 	 */
+	
 	public void addTextbook(Textbook book)
 	{
 		textbookDao.save(book);
@@ -124,4 +73,28 @@ public class SubjectService {
 	{
 		return chapterDao.findById(chapterId);
 	}
+	
+	/*
+	 *  Publisher
+	 */
+	public void addPublisher(Publisher publisher)
+	{
+		publisherDao.save(publisher);
+	}
+	
+	public void delPublisher(int publisherId)
+	{
+		publisherDao.delete(publisherId);
+	}
+	
+	public void editPublisher(Publisher publisher)
+	{
+		publisherDao.update(publisher);
+	}
+	
+	public Publisher findPublisher(int publisherId)
+	{
+		return publisherDao.findById(publisherId);
+	}
+
 }

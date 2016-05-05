@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,15 +13,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lubocloud.touchschoolcms.entity.Category;
+import com.lubocloud.touchschoolcms.service.CategoryService;
 
 @Controller
 @RequestMapping(value="/v1", produces="application/json; charset=UTF-8")
 public class CategoryRestController extends BaseRestController {
 	
+	@Autowired
+	CategoryService categoryService;
+	
 	@RequestMapping(value="/categorys",method=RequestMethod.GET)
 	@ResponseBody
 	public String getAllCategory(){
-		return this.getCourseService().getAllChildrenCategoryWithJson(0);
+		return categoryService.getAllChildrenCategoryWithJson(0);
 	}
 	
 	@RequestMapping(value="/categorys",method=RequestMethod.POST)
@@ -31,7 +36,7 @@ public class CategoryRestController extends BaseRestController {
 			return null;
 		}
 		System.out.println("add category "+cat.getName());
-		this.getCourseService().addCourseCategory(cat);
+		categoryService.addCourseCategory(cat);
 		return "{\"result\":\"success\"}";
 	}
 	
@@ -45,7 +50,7 @@ public class CategoryRestController extends BaseRestController {
 		}else{
 			catId = id.intValue();
 		}
-		Category category = this.getCourseService().getCourseCategory(catId);
+		Category category = categoryService.getCourseCategory(catId);
 		if(category!=null){
 			String jsonStr = "{\"name\": \"}"+category.getName()+"\", \"id\":"+category.getId();
 			return jsonStr;
@@ -62,10 +67,10 @@ public class CategoryRestController extends BaseRestController {
 			response.sendError(401);
 			return null;
 		}
-		Category category = this.getCourseService().getCourseCategory(cat.getId());
+		Category category = categoryService.getCourseCategory(cat.getId());
 		if(category!=null){
 			category.setName(cat.getName());
-			this.getCourseService().editCourseCategory(category);
+			categoryService.editCourseCategory(category);
 			return "{\"result\":\"success\"}";
 		}else{
 			response.sendError(404);
@@ -83,7 +88,7 @@ public class CategoryRestController extends BaseRestController {
 		}else{
 			catId = id.intValue();
 		}
-		this.getCourseService().delCourseCategory(catId);
+		categoryService.delCourseCategory(catId);
 		return "{\"result\":\"success\"}";
 	}
 	
@@ -94,7 +99,7 @@ public class CategoryRestController extends BaseRestController {
 		if(id==null || id.intValue()<0){
 			catId = 0;
 		}
-		return this.getCourseService().getAllChildrenCategoryWithJson(catId);
+		return categoryService.getAllChildrenCategoryWithJson(catId);
 	}
 	
 	@RequestMapping(value="/directchildrencategorys/{id}",method=RequestMethod.GET)
@@ -104,7 +109,7 @@ public class CategoryRestController extends BaseRestController {
 		if(id==null || id.intValue()<0){
 			catId = 0;
 		}
-		return this.getCourseService().getDirectChildrenCategoryWithJson(catId);
+		return categoryService.getDirectChildrenCategoryWithJson(catId);
 	}
 	
 }

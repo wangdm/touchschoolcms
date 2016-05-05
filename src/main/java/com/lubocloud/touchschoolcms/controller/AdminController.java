@@ -7,7 +7,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.lubocloud.touchschoolcms.service.CourseService;
 import com.lubocloud.touchschoolcms.service.ScheduleService;
-import com.lubocloud.touchschoolcms.service.SubjectService;
 import com.lubocloud.touchschoolcms.service.UserService;
 
 @Controller
@@ -19,9 +18,6 @@ public class AdminController {
     
 	@Autowired
 	UserService userService;
-    
-	@Autowired
-	SubjectService subjectService;
     
 	@Autowired
 	ScheduleService scheduleService;

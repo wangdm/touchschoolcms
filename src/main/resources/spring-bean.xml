@@ -25,6 +25,7 @@
     <bean id="scheduleDao" class="com.lubocloud.touchschoolcms.dao.impl.ScheduleDaoImpl"></bean>
     <bean id="lessonDao" class="com.lubocloud.touchschoolcms.dao.impl.LessonDaoImpl"></bean>
     <bean id="roomDao" class="com.lubocloud.touchschoolcms.dao.impl.RoomDaoImpl"></bean>
+    <bean id="rbdeviceDao" class="com.lubocloud.touchschoolcms.dao.impl.RBDeviceDaoImpl"></bean>
     <bean id="categoryDao" class="com.lubocloud.touchschoolcms.dao.impl.CategoryDaoImpl"></bean>
     <bean id="keyvalueDao" class="com.lubocloud.touchschoolcms.dao.impl.KeyValueDaoImpl"></bean>
 </beans>
