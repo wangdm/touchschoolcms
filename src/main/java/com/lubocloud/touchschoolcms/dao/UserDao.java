@@ -9,5 +9,5 @@ import com.lubocloud.touchschoolcms.entity.User;
  */
 public interface UserDao extends BaseDao<User>{
 	
-	public User findUserByName(String name);
+	public User findUser(String name);
 }

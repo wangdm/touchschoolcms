@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.lubocloud.touchschoolcms.dao.LessonDao;
 import com.lubocloud.touchschoolcms.dao.ScheduleDao;
-import com.lubocloud.touchschoolcms.dao.SubjectDao;
-import com.lubocloud.touchschoolcms.entity.Lesson;
+import com.lubocloud.touchschoolcms.entity.Group;
+import com.lubocloud.touchschoolcms.entity.Room;
 import com.lubocloud.touchschoolcms.entity.Schedule;
-import com.lubocloud.touchschoolcms.entity.Subject;
+import com.lubocloud.touchschoolcms.entity.Schedule.Week;
+import com.lubocloud.touchschoolcms.entity.Teacher;
 
 @Service("scheduleService")
 @Transactional
@@ -20,20 +20,10 @@ public class ScheduleService {
 	@Autowired
 	private ScheduleDao scheduleDao;
 	
-	@Autowired
-	private SubjectDao subjectDao;
-	
-	@Autowired
-	private LessonDao lessonDao;
-	
 	public ScheduleService()
 	{
-		//roleDao  = new RoleDaoImpl();
 	}
 	
-	/*
-	 *  Schedule
-	 */
 	public void addSchedule(Schedule s)
 	{
 		scheduleDao.save(s);
@@ -54,66 +44,58 @@ public class ScheduleService {
 		return scheduleDao.findById(scheduleId);
 	}
 	
+	public List<Schedule> querySchedule(Teacher teacher)
+	{
+		return scheduleDao.findByColumn("teacher.uid", teacher.getUid());
+	}
+	
+	public List<Schedule> querySchedule(Group group)
+	{
+		return scheduleDao.findByColumn("group.gid", group.getGid());
+	}
+	
+	public List<Schedule> queryScheduleByRoom(Room room)
+	{
+		return scheduleDao.findByColumn("room.id", room.getId());
+	}
+	
 	public List<Schedule> queryScheduleByTeacher(int uid)
 	{
-		return scheduleDao.findByColumn("Teacher.uid", uid);
+		return scheduleDao.findByColumn("teacher.uid", uid);
 	}
 	
 	public List<Schedule> queryScheduleByGroup(int gid)
 	{
-		return scheduleDao.findByColumn("Group.id", gid);
+		return scheduleDao.findByColumn("group.id", gid);
 	}
 	
 	public List<Schedule> queryScheduleByRoom(int roomId)
 	{
-		return scheduleDao.findByColumn("Room.id", roomId);
+		return scheduleDao.findByColumn("room.id", roomId);
 	}
 	
-	/*
-	 *  Subject
-	 */
-	public void addSubject(Subject subject)
+	public String getTeacherScheduleWithJson(int uid)
 	{
-		subjectDao.save(subject);
+		//TODO
+		return null;
 	}
 	
-	public void delSubject(int subjectId)
+	public String getGroupScheduleWithJson(int gid)
 	{
-		subjectDao.delete(subjectId);
+		//TODO
+		return null;
 	}
 	
-	public void editSubject(Subject subject)
+	public String getRoomScheduleWithJson(int roomId)
 	{
-		subjectDao.update(subject);
+		//TODO
+		return null;
 	}
 	
-	public Subject findSubject(int subjectId)
+	public String getRoomScheduleOnDayWithJson(int roomId, Week week)
 	{
-		return subjectDao.findById(subjectId);
+		//TODO
+		return null;
 	}
-	
-	/*
-	 *  Lesson
-	 */
-	public void addLesson(Lesson lesson)
-	{
-		lessonDao.save(lesson);
-	}
-	
-	public void delLesson(int lessonId)
-	{
-		lessonDao.delete(lessonId);
-	}
-	
-	public void editLesson(Lesson lesson)
-	{
-		lessonDao.update(lesson);
-	}
-	
-	public Lesson findLesson(int lessonId)
-	{
-		return lessonDao.findById(lessonId);
-	}
-
 	
 }

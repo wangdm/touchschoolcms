@@ -24,7 +24,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 	}
 
 	@Override
-	public User findUserByName(String name) {
+	public User findUser(String name) {
 		Criteria c = this.getSession().createCriteria(User.class);
 		c.add(Restrictions.or(Restrictions.eq("username",name),Restrictions.eq("email",name),Restrictions.eq("phone",name)));
 		return null;

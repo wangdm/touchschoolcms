@@ -1,15 +1,16 @@
 package com.lubocloud.touchschoolcms.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.lubocloud.touchschoolcms.dao.ChapterDao;
-import com.lubocloud.touchschoolcms.dao.PublisherDao;
 import com.lubocloud.touchschoolcms.dao.TextbookDao;
-import com.lubocloud.touchschoolcms.entity.Chapter;
 import com.lubocloud.touchschoolcms.entity.Publisher;
+import com.lubocloud.touchschoolcms.entity.Subject;
 import com.lubocloud.touchschoolcms.entity.Textbook;
+import com.lubocloud.touchschoolcms.utils.Page;
 
 @Service("textbookService")
 @Transactional
@@ -17,19 +18,10 @@ public class TextbookService {
 
 	@Autowired
 	private TextbookDao textbookDao;
-
-	@Autowired
-	private PublisherDao publisherDao;
-	
-	@Autowired
-	private ChapterDao chapterDao;
 	
 	public TextbookService()
 	{
 	}
-	/*
-	 *  Textbook
-	 */
 	
 	public void addTextbook(Textbook book)
 	{
@@ -50,51 +42,40 @@ public class TextbookService {
 	{
 		return textbookDao.findById(bookId);
 	}
-
-	/*
-	 *  Chapter
-	 */
-	public void addChapter(Chapter chapter)
+	
+	public List<Textbook> listTextbook(Page page)
 	{
-		chapterDao.save(chapter);
+		//TODO
+		return null;
 	}
 	
-	public void delChapter(int chapterId)
+	public List<Textbook> listTextbook(Publisher publisher, Page page)
 	{
-		chapterDao.delete(chapterId);
+		//TODO
+		return null;
 	}
 	
-	public void editChapter(Chapter chapter)
+	public List<Textbook> listTextbook(Subject subject, Page page)
 	{
-		chapterDao.update(chapter);
+		//TODO
+		return null;
 	}
 	
-	public Chapter findChapter(int chapterId)
+	public List<Textbook> listTextbook(Publisher publisher, Subject subject, Page page)
 	{
-		return chapterDao.findById(chapterId);
+		//TODO
+		return null;
 	}
 	
-	/*
-	 *  Publisher
-	 */
-	public void addPublisher(Publisher publisher)
+	public List<Textbook> listTextbook(int publisherId, int subjectId, Page page)
 	{
-		publisherDao.save(publisher);
-	}
-	
-	public void delPublisher(int publisherId)
-	{
-		publisherDao.delete(publisherId);
-	}
-	
-	public void editPublisher(Publisher publisher)
-	{
-		publisherDao.update(publisher);
-	}
-	
-	public Publisher findPublisher(int publisherId)
-	{
-		return publisherDao.findById(publisherId);
+		//TODO
+		return null;
 	}
 
+	public String listTextbookWithJson(int publisherId, int subjectId, Page page)
+	{
+		//TODO
+		return null;
+	}
 }

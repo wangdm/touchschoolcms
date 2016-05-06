@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lubocloud.touchschoolcms.dao.RoomDao;
 import com.lubocloud.touchschoolcms.entity.Room;
+import com.lubocloud.touchschoolcms.utils.Page;
 
 @Service("roomService")
 @Transactional
@@ -43,6 +44,18 @@ public class RoomService {
 	public List<Room> listAllRoom()
 	{
 		return roomDao.listAll();
+	}
+	
+	public List<Room> listRoom(Page page)
+	{
+		//TODO
+		return null;
+	}
+	
+	public String listRoomWithJson(Page page)
+	{
+		//TODO
+		return null;
 	}
 
 }

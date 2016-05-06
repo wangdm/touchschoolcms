@@ -30,14 +30,24 @@ public class KeyValueService {
 		keyvalueDao.delete(id);
 	}
 	
+	public void editKeyValue(KeyValue kv)
+	{
+		keyvalueDao.update(kv);
+	}
+	
 	public KeyValue findKeyValue(int id)
 	{
 		return keyvalueDao.findById(id);
 	}
 	
-	public void editKeyValue(KeyValue kv)
+	public KeyValue findKeyValue(String key)
 	{
-		keyvalueDao.update(kv);
+		KeyValue kv = null;
+		List<KeyValue> list = keyvalueDao.findByColumn("key", key);
+		if(list!=null && list.size()>0){
+			kv = list.get(0);
+		}
+		return kv;
 	}
 	
 	public List<KeyValue> listAllKeyValue()

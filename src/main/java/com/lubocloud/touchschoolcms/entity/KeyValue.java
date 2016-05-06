@@ -21,6 +21,13 @@ public class KeyValue {
     
 	@Column(name="v", nullable=false, length=40)
 	private String value;
+	
+	//用户相关设置
+	public static String defaultUserRole = "defaultUserRole";
+	public static String enableRegister = "enableRegister";
+	
+	//课程视频相关设置
+	public static String courseApproval = "courseApproval";
 
 	public KeyValue(){
 

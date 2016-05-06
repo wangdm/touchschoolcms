@@ -18,6 +18,7 @@
     <bean id="teacherDao" class="com.lubocloud.touchschoolcms.dao.impl.TeacherDaoImpl"></bean>
     <bean id="courseDao" class="com.lubocloud.touchschoolcms.dao.impl.CourseDaoImpl"></bean>
     <bean id="videoDao" class="com.lubocloud.touchschoolcms.dao.impl.VideoDaoImpl"></bean>
+    <bean id="liveDao" class="com.lubocloud.touchschoolcms.dao.impl.LiveDaoImpl"></bean>
     <bean id="publisherDao" class="com.lubocloud.touchschoolcms.dao.impl.PublisherDaoImpl"></bean>
     <bean id="subjectDao" class="com.lubocloud.touchschoolcms.dao.impl.SubjectDaoImpl"></bean>
     <bean id="textbookDao" class="com.lubocloud.touchschoolcms.dao.impl.TextbookDaoImpl"></bean>

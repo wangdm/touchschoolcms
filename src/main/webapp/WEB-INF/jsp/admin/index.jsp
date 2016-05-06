@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Insert title here</title>
+<title>拓奇在线学习系统 - 后台管理</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <link href="<%=application.getContextPath()%>/assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
@@ -63,6 +63,7 @@
           <li data-action="listcoursecategory"><a>课程分类</a></li>
           <li data-action="listcourse"><a>课程管理</a></li>
           <li data-action="listvideo"><a>视频管理</a></li>
+          <li data-action="listlive"><a>直播管理</a></li>
       </ul>
   </div>
   

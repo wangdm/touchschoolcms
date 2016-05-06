@@ -12,11 +12,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Schedule")
 public class Schedule {
+	
+	public enum Week{Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id", nullable=false, unique=true)
 	private int id;
+
+	@Column(name="week", nullable=false)
+	private Week week;
     
     @ManyToOne
     @JoinColumn(name="subjectId")
@@ -44,6 +49,14 @@ public class Schedule {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public Week getWeek() {
+		return week;
+	}
+
+	public void setWeek(Week week) {
+		this.week = week;
 	}
 
 	public Subject getSubject() {

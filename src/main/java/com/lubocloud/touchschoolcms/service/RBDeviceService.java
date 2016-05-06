@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lubocloud.touchschoolcms.dao.RBDeviceDao;
 import com.lubocloud.touchschoolcms.entity.RBDevice;
+import com.lubocloud.touchschoolcms.entity.Room;
+import com.lubocloud.touchschoolcms.utils.Page;
 
 @Service("rbdeviceService")
 @Transactional
@@ -25,6 +27,11 @@ public class RBDeviceService {
 		rbdeviceDao.save(device);
 	}
 	
+	public void editRBDevice(RBDevice device)
+	{
+		rbdeviceDao.update(device);
+	}
+	
 	public void delRBDevice(int id)
 	{
 		rbdeviceDao.delete(id);
@@ -35,13 +42,26 @@ public class RBDeviceService {
 		return rbdeviceDao.findById(id);
 	}
 	
-	public void editRBDevice(RBDevice device)
+	public RBDevice findRBDevice(Room room)
 	{
-		rbdeviceDao.update(device);
+		//TODO
+		return null;
 	}
 	
 	public List<RBDevice> listAllRBDevice()
 	{
 		return rbdeviceDao.listAll();
+	}
+	
+	public List<RBDevice> listRBDevice(Page page)
+	{
+		//TODO
+		return null;
+	}
+	
+	public String listRBDeviceWithJson(Page page)
+	{
+		//TODO
+		return null;
 	}
 }

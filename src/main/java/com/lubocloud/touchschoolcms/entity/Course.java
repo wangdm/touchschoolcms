@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class Course {
 
     public enum CourseStatus{
-        
+    	Draft,Verifying
     }
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

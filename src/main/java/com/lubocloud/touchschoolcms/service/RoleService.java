@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lubocloud.touchschoolcms.dao.RoleDao;
 import com.lubocloud.touchschoolcms.entity.Role;
+import com.lubocloud.touchschoolcms.utils.Page;
 
 @Service("roleService")
 @Transactional
@@ -43,5 +44,17 @@ public class RoleService {
 	public List<Role> listAllRole()
 	{
 		return roleDao.listAll();
+	}
+	
+	public List<Role> listRole(Page page)
+	{
+		//TODO
+		return null;
+	}
+	
+	public String listRoleWithJson(Page page)
+	{
+		//TODO
+		return null;
 	}
 }

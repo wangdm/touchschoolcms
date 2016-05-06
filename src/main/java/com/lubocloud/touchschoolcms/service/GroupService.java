@@ -56,6 +56,7 @@ public class GroupService {
 	
 	public String listAllChildrenGroupWithJson(int id)
 	{
+		//TODO
 		String jsonStr = null;
 		return jsonStr;
 	}
