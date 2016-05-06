@@ -52,6 +52,13 @@ public class AdminController {
 		return modal;
 	}
     
+    @RequestMapping(value="/listlive")
+	public ModelAndView listLive()
+	{
+        ModelAndView modal = new ModelAndView("admin/action-listlive");
+		return modal;
+	}
+    
 	/////////////////////////////////////////////////////////////////////////////////////
     //// 用户管理
     /////////////////////////////////////////////////////////////////////////////////////
