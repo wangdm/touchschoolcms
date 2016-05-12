@@ -14,6 +14,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+/*
+ * 课本章节的实体
+ */
 @Entity
 @Table(name = "Chapter")
 public class Chapter {

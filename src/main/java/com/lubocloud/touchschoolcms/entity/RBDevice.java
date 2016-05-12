@@ -9,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+/*
+ * 录播设备的实体
+ */
 @Entity
 @Table(name = "RBDevice")
 public class RBDevice {

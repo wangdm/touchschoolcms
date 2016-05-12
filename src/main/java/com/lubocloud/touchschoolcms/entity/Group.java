@@ -14,6 +14,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+/*
+ * 用户组的实体
+ */
 @Entity
 @Table(name = "UserGroup")
 public class Group {

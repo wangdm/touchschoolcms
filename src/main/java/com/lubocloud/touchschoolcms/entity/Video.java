@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/*
+ * 视频实体
+ */
 @Entity
 @Table(name = "Video")
 public class Video {

@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/*
+ * 用户角色的实体
+ */
 @Entity
 @Table(name = "Role")
 public class Role {

@@ -13,6 +13,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/*
+ * 用户实体
+ */
 @Entity
 @Table(name = "User")
 @Inheritance(strategy = InheritanceType.JOINED)  

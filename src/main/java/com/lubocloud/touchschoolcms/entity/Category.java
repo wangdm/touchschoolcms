@@ -9,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/*
+ * 课程视频的分类实体
+ */
 @Entity
 @Table(name = "Category")
 public class Category {

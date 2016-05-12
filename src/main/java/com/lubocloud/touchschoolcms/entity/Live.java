@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/*
+ * 直播课程的实体
+ */
 @Entity
 @Table(name = "Live")
 public class Live {

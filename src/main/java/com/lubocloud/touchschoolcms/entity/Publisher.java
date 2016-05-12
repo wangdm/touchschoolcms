@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/*
+ * 课本出版社实体
+ */
 @Entity
 @Table(name = "Publisher")
 public class Publisher {

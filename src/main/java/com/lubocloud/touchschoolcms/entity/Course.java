@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/*
+ * 课程的实体
+ */
 @Entity
 @Table(name = "Course")
 public class Course {

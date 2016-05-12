@@ -9,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/*
+ * 课程表实体
+ */
 @Entity
 @Table(name = "Schedule")
 public class Schedule {
@@ -22,6 +25,10 @@ public class Schedule {
 
 	@Column(name="week", nullable=false)
 	private Week week;
+	
+    @ManyToOne
+    @JoinColumn(name="lessonId")
+    private Lesson lesson;
     
     @ManyToOne
     @JoinColumn(name="subjectId")
@@ -57,6 +64,14 @@ public class Schedule {
 
 	public void setWeek(Week week) {
 		this.week = week;
+	}
+
+	public Lesson getLesson() {
+		return lesson;
+	}
+
+	public void setLesson(Lesson lesson) {
+		this.lesson = lesson;
 	}
 
 	public Subject getSubject() {

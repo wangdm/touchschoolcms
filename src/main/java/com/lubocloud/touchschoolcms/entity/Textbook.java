@@ -9,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/*
+ * 课本实体
+ */
 @Entity
 @Table(name = "Textbook")
 public class Textbook {

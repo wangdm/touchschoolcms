@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/*
+ * Key-Value配置信息的实体 
+ */
 @Entity
 @Table(name = "KeyValue")
 public class KeyValue {

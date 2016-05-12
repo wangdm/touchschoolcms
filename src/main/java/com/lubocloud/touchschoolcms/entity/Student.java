@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+/*
+ * 学生实体
+ */
 @Entity
 @Table(name = "Student")
 public class Student extends User{

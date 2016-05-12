@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/*
+ * 每天上课节次的实体
+ */
 @Entity
 @Table(name = "Lesson")
 public class Lesson {
