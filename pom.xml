@@ -17,6 +17,12 @@
     </dependency>
     
     <dependency>
+        <groupId>jstl</groupId>
+        <artifactId>jstl</artifactId>
+        <version>1.2</version>
+    </dependency>
+    
+    <dependency>
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
         <version>5.1.38</version>
@@ -86,7 +92,7 @@
         <version>4.3.11.Final</version>
     </dependency>
     
-    <!-- Hibernate -->
+    <!-- Jackson -->
     <dependency>
         <groupId>org.codehaus.jackson</groupId>
         <artifactId>jackson-core-asl</artifactId>
@@ -113,6 +119,14 @@
         <artifactId>jackson-annotations</artifactId>
         <version>2.7.4</version>
     </dependency>
+    
+    <!-- AspectJ -->
+    <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjrt</artifactId>
+        <version>1.8.3</version>
+    </dependency>
+    
     
   </dependencies>
   

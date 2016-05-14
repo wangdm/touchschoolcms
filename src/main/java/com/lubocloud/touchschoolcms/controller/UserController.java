@@ -2,6 +2,7 @@ package com.lubocloud.touchschoolcms.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,21 +15,32 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
-
-	//登录
-	@RequestMapping(value="/login",method=RequestMethod.POST)
-	public ModelAndView login(){
-		return null;
-	}
-	//注册
-	@RequestMapping(value="/register",method=RequestMethod.POST)
-	public ModelAndView register(){
-		return null;
+	
+	@RequestMapping(value="/{username}", method=RequestMethod.GET)
+	public ModelAndView userCenter(@PathVariable("username") String username){
+        ModelAndView model = new ModelAndView("user/index");
+		//TODO
+		return model;
 	}
 	
-	@RequestMapping(value="/member")
-	public ModelAndView memberCenter(){
-        ModelAndView model = new ModelAndView("member/index");
+	@RequestMapping(value="/{username}/profile", method=RequestMethod.GET)
+	public ModelAndView userProfile(@PathVariable("username") String username){
+        ModelAndView model = new ModelAndView("user/index");
+		//TODO
+		return model;
+	}
+	
+	@RequestMapping(value="/{username}/course", method=RequestMethod.GET)
+	public ModelAndView userCourse(@PathVariable("username") String username){
+        ModelAndView model = new ModelAndView("user/index");
+		//TODO
+		return model;
+	}
+	
+	@RequestMapping(value="/{username}/video", method=RequestMethod.GET)
+	public ModelAndView userVideo(@PathVariable("username") String username){
+        ModelAndView model = new ModelAndView("user/index");
+		//TODO
 		return model;
 	}
 }

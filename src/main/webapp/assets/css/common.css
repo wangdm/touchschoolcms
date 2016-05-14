@@ -1,0 +1,77 @@
+.bottom{
+    background:#1F2022;
+    height:210px;
+    width:100%;
+}
+
+.bottom .container{
+  height:100%;
+  position:relative;
+}
+
+.bottom .container{
+  color:rgb(200,200,200);
+}
+
+.bottom .container h4{
+  color:rgb(150,150,150);
+  font-style:oblique;
+  margin-bottom:20px;
+}
+
+.bottom .container a{
+  color:rgb(200,200,200);
+}
+
+.bottom .website{
+  float:left;
+  margin:0px 20px;
+}
+
+.website ul{
+  padding:0px;
+}
+
+.website li{
+  list-style:none;
+  margin-top:10px;
+}
+
+.bottom .links{
+  float:left;
+  margin:0px 20px;
+}
+
+.bottom .links a{
+  padding:2px;
+}
+
+.bottom .qrcode{
+  float:right;
+  margin:20px;
+}
+
+.qrcode .qr-title{
+  float:right;
+  margin-right:20px;
+}
+
+.qrcode .qr-title li{
+  list-style:none;
+  margin-top:15px;
+  text-algin:right;
+}
+
+.qrcode .qr-image{
+  float:right;
+}
+
+.qrcode .qr-image img{
+  width:120px;
+  height:120px;
+  display:none;
+}
+
+.qrcode .qr-image img.show{
+  display:normal;
+}
