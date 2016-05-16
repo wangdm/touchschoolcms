@@ -69,7 +69,7 @@ function getAllChildrenCategory(id){
         "url": contextPath+"/v1/allchildrencategorys/"+id,
         "type": "GET",
     }).success(function(data){
-    	console.log(data);
+    	//console.log(data);
     }).fail(function(){
     	console.log("connect "+this.url+" failed!");
     	return null;
@@ -87,3 +87,22 @@ function getDirectChildrenCategory(id){
     	return null;
     });
 }
+
+function recursiveTree(tree,pid,data){
+	tree.add(data.id,pid,data.name);
+	if(data.children && data.children.length>0)
+	{
+		for(var i=0; i<data.children.length; i++)
+		{
+			recursiveTree(tree,data.id,data.children[i]);
+		}
+	}
+}
+
+function createTree(node,data){
+	d = new dTree('d');
+	recursiveTree(d,-1,data);
+	node.html(d.toString());
+}
+
+

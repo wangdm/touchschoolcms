@@ -1,11 +1,18 @@
 package com.lubocloud.touchschoolcms.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.lubocloud.touchschoolcms.entity.Lesson;
+import com.lubocloud.touchschoolcms.entity.User;
 import com.lubocloud.touchschoolcms.service.CourseService;
+import com.lubocloud.touchschoolcms.service.LessonService;
 import com.lubocloud.touchschoolcms.service.ScheduleService;
 import com.lubocloud.touchschoolcms.service.UserService;
 
@@ -21,12 +28,20 @@ public class AdminController {
     
 	@Autowired
 	ScheduleService scheduleService;
+	
+	@Autowired
+	LessonService lessonService;
 
-	@RequestMapping(value="/")
-	public ModelAndView dashboard()
+	@RequestMapping(value="")
+	public ModelAndView dashboard(HttpServletRequest request)
 	{
-        ModelAndView modal = new ModelAndView("admin/index");
-		return modal;
+        ModelAndView model = new ModelAndView("admin/index");
+        model.addObject("contextPath", request.getContextPath());
+        User curuser = (User)request.getSession().getAttribute("curuser");
+        if(curuser!=null){
+        	model.addObject("curuser", curuser);
+        }
+		return model;
 	}
 	/////////////////////////////////////////////////////////////////////////////////////
     //// 课程管理
@@ -133,31 +148,43 @@ public class AdminController {
     /////////////////////////////////////////////////////////////////////////////////////
     
     @RequestMapping(value="/listlesson")
-	public ModelAndView listLesson()
+	public ModelAndView listLesson(HttpServletRequest request)
 	{
-        ModelAndView modal = new ModelAndView("admin/action-listlesson");
-		return modal;
+        ModelAndView model = new ModelAndView("admin/action-listlesson");
+        model.addObject("contextPath", request.getContextPath());
+        List<Lesson> lessonList= lessonService.listAllLesson();
+        model.addObject("lessonList", lessonList);
+		return model;
 	}
     
     @RequestMapping(value="/queryteacherschedule")
-	public ModelAndView queryTeacherSchedule()
+	public ModelAndView queryTeacherSchedule(HttpServletRequest request)
 	{
-        ModelAndView modal = new ModelAndView("admin/action-queryteacherschedule");
-		return modal;
+        ModelAndView model = new ModelAndView("admin/action-queryteacherschedule");
+        model.addObject("contextPath", request.getContextPath());
+        List<Lesson> lessonList= lessonService.listAllLesson();
+        model.addObject("lessonList", lessonList);
+		return model;
 	}
     
     @RequestMapping(value="/querygroupschedule")
-	public ModelAndView queryGroupSchedule()
+	public ModelAndView queryGroupSchedule(HttpServletRequest request)
 	{
-        ModelAndView modal = new ModelAndView("admin/action-querygroupschedule");
-		return modal;
+        ModelAndView model = new ModelAndView("admin/action-querygroupschedule");
+        model.addObject("contextPath", request.getContextPath());
+        List<Lesson> lessonList= lessonService.listAllLesson();
+        model.addObject("lessonList", lessonList);
+		return model;
 	}
     
     @RequestMapping(value="/queryclassschedule")
-	public ModelAndView queryClassSchedule()
+	public ModelAndView queryClassSchedule(HttpServletRequest request)
 	{
-        ModelAndView modal = new ModelAndView("admin/action-queryclassschedule");
-		return modal;
+        ModelAndView model = new ModelAndView("admin/action-queryclassschedule");
+        model.addObject("contextPath", request.getContextPath());
+        List<Lesson> lessonList= lessonService.listAllLesson();
+        model.addObject("lessonList", lessonList);
+		return model;
 	}
     
 	/////////////////////////////////////////////////////////////////////////////////////

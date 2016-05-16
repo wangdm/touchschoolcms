@@ -6,14 +6,17 @@
 <title>拓奇在线学习系统 - 后台管理</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link href="<%=application.getContextPath()%>/assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-<link href="<%=application.getContextPath()%>/assets/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
-<link href="<%=application.getContextPath()%>/assets/iconfont/iconfont.css" rel="stylesheet" type="text/css"/>
-<link href="<%=application.getContextPath()%>/assets/css/admin.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="${contextPath}/assets/css/bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="${contextPath}/assets/css/bootstrap-theme.css"/>
+<link rel="stylesheet" type="text/css" href="${contextPath}/assets/iconfont/iconfont.css"/>
+<link rel="stylesheet" type="text/css" href="${contextPath}/assets/css/admin.css"/>
 
-<script type="text/javascript" src="<%=application.getContextPath()%>/assets/js/jquery.js"></script>
-<script type="text/javascript" src="<%=application.getContextPath()%>/assets/js/bootstrap.js"></script>
-<script type="text/javascript" src="<%=application.getContextPath()%>/assets/js/admin.js"></script>
+<script type="text/javascript" src="${contextPath}/assets/js/jquery.js"></script>
+<script type="text/javascript" src="${contextPath}/assets/js/bootstrap.js"></script>
+<script type="text/javascript" src="${contextPath}/assets/js/admin.js"></script>
+
+<link rel="stylesheet" type="text/css" href="${contextPath}/assets/plugins/dtree/dtree.css"/>
+<script type="text/javascript" src="${contextPath}/assets/plugins/dtree/dtree.js"></script>
 
 </head>
 <body>
@@ -23,15 +26,14 @@
   <nav role="navigation" class="navbar navbar-default navbar-fixed-top"
     style="min-height: 50px;">
       <div style="line-height: 50px;">
-        <a style="float: left;" href="<%=application.getContextPath()%>">
+        <a style="float: left;" href="${contextPath}">
             <img src="<%=application.getContextPath()%>/assets/images/dashboard.png"/>
         </a>
       </div>
-      <div style="line-height: 50px;">
-        <a style="float: right;" href="logout.jsp">Logout</a>
-        <div style="float: right;">&nbsp;|&nbsp;</div>
-        <a style="float: right;" href="member.jsp">
-        </a>
+      <div style="line-height: 50px;padding-right:20px;">
+        <a style="float: right;" href="logout">Logout</a>
+        <div style="float: right;">&nbsp;&nbsp;|&nbsp;&nbsp;</div>
+        <a style="float: right;" href="member">${curuser.username}</a>
       </div>
   </nav>
 
@@ -72,7 +74,7 @@
   </div>
   <div id="dashboard-schedule" class="collapse" aria-expanded="true">
       <ul class="nav nav-list">
-          <li data-action="listlesson"><a>课程节次</a></li>
+          <li data-action="listlesson"><a>上课节次</a></li>
           <li data-action="querygroupschedule"><a>班级课表</a></li>
           <li data-action="queryclassschedule"><a>教室课表</a></li>
           <li data-action="queryteacherschedule"><a>老师课表</a></li>
@@ -109,16 +111,17 @@
 
 <script type="text/javascript">
 $(function(){
-	contextPath = "<%=application.getContextPath()%>";
+	contextPath = "${contextPath}";
     resizeDashboard();
 	$(window).resize(function(){
 	    resizeDashboard();
 	});
 	$("#dashboard_menu li").on("click", function(){
-		var action = "<%=application.getContextPath()%>/admin/"+$(this).attr("data-action");
+		var action = "${contextPath}/admin/"+$(this).attr("data-action");
 		doAdminAction(action,$("#dashboard_content"));
 		var data = getAllChildrenCategory(0);
 	})
+    doAdminAction("${contextPath}/admin/listlesson",$("#dashboard_content"));
 });
 </script>
 </body>

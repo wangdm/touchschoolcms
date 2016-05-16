@@ -29,6 +29,10 @@ body {
     padding:0px 10px;
 }
 
+.content-wrapper{
+    padding:20px;
+}
+
 .nav-header {
   display: block;
   font-weight: bold;
@@ -100,6 +104,7 @@ body {
   border-top: 0px;
 }
 .nav-list > li > a {
+    cursor:pointer;
     padding: .5em 15px;
     padding-top: 0.5em;
     padding-right: 15px;
@@ -107,4 +112,68 @@ body {
     padding-left: 15px;
     border-top: 1px solid #fff;
     border-bottom: 1px solid #fff;
+}
+
+.lefttree{
+  border-right:1px dashed rgb(183,183,183);
+  width:210px;
+  height:100%;
+  padding:20px;
+}
+
+.content-wrapper .panel-body{
+    padding:10px 5px;
+}
+
+.operationleft{
+    float:left;
+}
+
+.operationright{
+    float:right;
+}
+
+.operationleft .operation{
+    float:left;
+}
+
+.operationright .operation{
+    float:right;
+}
+
+.operationleft .input-group{
+    max-width:300px;
+}
+
+.operation{
+    margin:0px 10px;
+    padding:0px 10px;
+}
+
+.operation a{
+    cursor:pointer;
+    color:#4b3ac5;
+    font-size:15px;
+    text-decoration:none;
+    line-height:22px;
+    vertical-align: middle;
+}
+
+.operation a img{
+    width:20px;
+    height:20px;
+}
+
+.operation a span{
+    line-height:22px;
+    vertical-align: middle;
+}
+
+.operation a:hover{
+    color:#ff8000;
+}
+
+.content-wrapper .table > thead > tr > th,.content-wrapper .table > tbody > tr > td,.content-wrapper .table > tbody > tr > th{
+    vertical-align: middle;
+    text-align:center;
 }
