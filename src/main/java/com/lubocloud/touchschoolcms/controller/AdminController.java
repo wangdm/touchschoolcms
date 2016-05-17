@@ -47,9 +47,10 @@ public class AdminController {
     //// 课程管理
     /////////////////////////////////////////////////////////////////////////////////////
 	@RequestMapping(value="/listcoursecategory")
-	public ModelAndView listCourseCategory()
+	public ModelAndView listCourseCategory(HttpServletRequest request)
 	{
         ModelAndView modal = new ModelAndView("admin/action-listcategory");
+        modal.addObject("contextPath", request.getContextPath());
 		return modal;
 	}
     

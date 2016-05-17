@@ -119,6 +119,17 @@ body {
   width:210px;
   height:100%;
   padding:20px;
+  float:left;
+  overflow: auto;
+}
+
+.rightcontent{
+    float:left;
+    padding:20px;
+}
+
+.rightcontent .panel-body{
+    padding:10px 5px;
 }
 
 .content-wrapper .panel-body{
@@ -173,7 +184,7 @@ body {
     color:#ff8000;
 }
 
-.content-wrapper .table > thead > tr > th,.content-wrapper .table > tbody > tr > td,.content-wrapper .table > tbody > tr > th{
+#dashboard_content .table > thead > tr > th,#dashboard_content .table > tbody > tr > td,#dashboard_content .table > tbody > tr > th{
     vertical-align: middle;
     text-align:center;
 }

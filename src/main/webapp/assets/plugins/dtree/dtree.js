@@ -138,7 +138,7 @@ dTree.prototype.node = function(node, nodeId) {
 			str += ' onclick="javascript: ' + this.obj + '.s(' + nodeId + ');"';
 		str += '>';
 	}
-	//else if ((!this.config.folderLinks || !node.url) && node._hc && node.pid != this.root.id)		//str += '<a href="javascript: ' + this.obj + '.o(' + nodeId + ');" class="node">';	str += '<a id="s' + this.obj + nodeId + '" href="javascript: ' + this.obj + '.s(' + nodeId + ');" class="node">';
+	//else if ((!this.config.folderLinks || !node.url) && node._hc && node.pid != this.root.id)		//str += '<a href="javascript: ' + this.obj + '.o(' + nodeId + ');" class="node">';	str += '<a id="s' + this.obj + nodeId + '" data-id="'+node.id+'" href="javascript: ' + this.obj + '.s(' + nodeId + ');" class="node">';
 	str += node.name;
 	//if (node.url || ((!this.config.folderLinks || !node.url) && node._hc))		str += '</a>';
 	str += '</div>';

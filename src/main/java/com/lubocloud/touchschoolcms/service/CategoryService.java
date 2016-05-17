@@ -112,25 +112,32 @@ public class CategoryService {
 	public String getDirectChildrenCategoryWithJson(int categoryId)
 	{
         String jsonStr = null;
-        Category parentCat = categoryDao.findById(categoryId);
-        if(parentCat!=null){
-            jsonStr = "{\"name\":\""+parentCat.getName()+"\", \"id\":"+parentCat.getId();
-            List<Category> catlist = categoryDao.findByColumn("parentCategory.id", categoryId);
-            if(catlist!=null && catlist.size()>0){
-            	jsonStr += ", \"children\":[";
-            	for(int i=0; i<catlist.size(); i++){
-            		Category childCat = catlist.get(i);
-            		jsonStr += "{\"name\":\""+childCat.getName()+"\",\"id\":"+childCat.getId();
-            		if(i==catlist.size()-1){
-            			jsonStr += "}";
-            		}else{
-            			jsonStr += "},";
-            		}
-            	}
-    			jsonStr += "]";
+        List<Category> catlist = null;
+        if(categoryId>0){
+            Category parentCat = categoryDao.findById(categoryId);
+            if(parentCat==null){
+            	return null;
             }
-			jsonStr += "}";
+            jsonStr = "{\"name\":\""+parentCat.getName()+"\", \"id\":"+parentCat.getId();
+            catlist = categoryDao.findByColumn("parentCategory.id", categoryId);
+        }else{
+	        jsonStr = "{\"name\":\"在线学习平台\", \"id\":0";
+            catlist = categoryDao.findByColumn("parentCategory.id", null);
         }
+        if(catlist!=null && catlist.size()>0){
+        	jsonStr += ", \"children\":[";
+        	for(int i=0; i<catlist.size(); i++){
+        		Category childCat = catlist.get(i);
+        		jsonStr += "{\"name\":\""+childCat.getName()+"\",\"id\":"+childCat.getId();
+        		if(i==catlist.size()-1){
+        			jsonStr += "}";
+        		}else{
+        			jsonStr += "},";
+        		}
+        	}
+			jsonStr += "]";
+        }
+		jsonStr += "}";
 		return jsonStr;
 	}
 	

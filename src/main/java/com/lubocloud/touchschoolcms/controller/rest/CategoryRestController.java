@@ -35,6 +35,10 @@ public class CategoryRestController extends BaseRestController {
 			response.sendError(401);
 			return null;
 		}
+		if(cat.getParentCategory()!=null&&cat.getParentCategory().getId()<=0)
+		{
+			cat.setParentCategory(null);
+		}
 		System.out.println("add category "+cat.getName());
 		categoryService.addCourseCategory(cat);
 		return "{\"result\":\"success\"}";
@@ -96,8 +100,8 @@ public class CategoryRestController extends BaseRestController {
 	@ResponseBody
 	public String getAllChildrenCategory(@PathVariable("id") Integer id){
 		int catId = 0;
-		if(id==null || id.intValue()<0){
-			catId = 0;
+		if(id!=null && id.intValue()>0){
+			catId = id.intValue();
 		}
 		return categoryService.getAllChildrenCategoryWithJson(catId);
 	}
@@ -106,8 +110,8 @@ public class CategoryRestController extends BaseRestController {
 	@ResponseBody
 	public String getDirectChildrenCategory(@PathVariable("id") Integer id){
 		int catId = 0;
-		if(id==null || id.intValue()<0){
-			catId = 0;
+		if(id!=null && id.intValue()>0){
+			catId = id.intValue();
 		}
 		return categoryService.getDirectChildrenCategoryWithJson(catId);
 	}
