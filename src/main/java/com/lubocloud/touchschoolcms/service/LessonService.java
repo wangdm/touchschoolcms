@@ -1,5 +1,6 @@
 package com.lubocloud.touchschoolcms.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +48,25 @@ public class LessonService {
 	
 	public String listLessonWithJson()
 	{
-		//TODO
-		return null;
+		String JsonStr = null;
+		List<Lesson> lessonlist = new ArrayList<Lesson>();
+		lessonlist = lessonDao.listAll();
+		JsonStr ="\"List\"[";
+		if(lessonlist.size()>0 && lessonlist!=null){
+			for(int i =0; i<lessonlist.size();i++){
+				Lesson lesson = lessonlist.get(i);
+				if(lesson!=null){
+					JsonStr +="{\"name\":\""+lesson.getName()+"\",\"id\":"+lesson.getId();
+				}else{
+					return null;
+				}
+				if(i==lessonlist.size()-1){
+					JsonStr +="}";
+				}
+				JsonStr +="},";
+			}
+			JsonStr +="]";
+		}
+		return JsonStr;
 	}
 }

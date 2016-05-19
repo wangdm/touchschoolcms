@@ -1,5 +1,7 @@
 package com.lubocloud.touchschoolcms.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.lubocloud.touchschoolcms.entity.Lesson;
 import com.lubocloud.touchschoolcms.entity.User;
+import com.lubocloud.touchschoolcms.service.LessonService;
 import com.lubocloud.touchschoolcms.service.UserService;
 
 @Controller
@@ -17,6 +21,9 @@ public class MemberController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	LessonService lessonService;
 
 	//登录
 	@RequestMapping(value="/login")
@@ -97,6 +104,9 @@ public class MemberController {
         ModelAndView model = new ModelAndView("member/schedule");
         model.addObject("contextPath", request.getContextPath());
         model.addObject("menu_schedule", "select");
+        
+        List<Lesson> lessonList= lessonService.listAllLesson();
+        model.addObject("lessonList", lessonList);
 		//TODO
 		return model;
 	}

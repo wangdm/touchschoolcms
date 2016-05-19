@@ -49,99 +49,111 @@ public class AdminController {
 	@RequestMapping(value="/listcoursecategory")
 	public ModelAndView listCourseCategory(HttpServletRequest request)
 	{
-        ModelAndView modal = new ModelAndView("admin/action-listcategory");
-        modal.addObject("contextPath", request.getContextPath());
-		return modal;
+        ModelAndView model = new ModelAndView("admin/action-listcategory");
+        model.addObject("contextPath", request.getContextPath());
+		return model;
 	}
     
     @RequestMapping(value="/listcourse")
-	public ModelAndView listCourse()
+	public ModelAndView listCourse(HttpServletRequest request)
 	{
-        ModelAndView modal = new ModelAndView("admin/action-listcourse");
-		return modal;
+        ModelAndView model = new ModelAndView("admin/action-listcourse");
+        model.addObject("contextPath", request.getContextPath());
+		return model;
 	}
     
     @RequestMapping(value="/listvideo")
-	public ModelAndView listVideo()
+	public ModelAndView listVideo(HttpServletRequest request)
 	{
-        ModelAndView modal = new ModelAndView("admin/action-listvideo");
-		return modal;
+        ModelAndView model = new ModelAndView("admin/action-listvideo");
+        model.addObject("contextPath", request.getContextPath());
+		return model;
 	}
     
     @RequestMapping(value="/listlive")
-	public ModelAndView listLive()
+	public ModelAndView listLive(HttpServletRequest request)
 	{
-        ModelAndView modal = new ModelAndView("admin/action-listlive");
-		return modal;
+        ModelAndView model = new ModelAndView("admin/action-listlive");
+        model.addObject("contextPath", request.getContextPath());
+		return model;
 	}
     
 	/////////////////////////////////////////////////////////////////////////////////////
     //// 用户管理
     /////////////////////////////////////////////////////////////////////////////////////
     @RequestMapping(value="/listgroupcategory")
-	public ModelAndView listGroupCategory()
+	public ModelAndView listGroupCategory(HttpServletRequest request)
 	{
-        ModelAndView modal = new ModelAndView("admin/action-listcategory");
-		return modal;
+        ModelAndView model = new ModelAndView("admin/action-listcategory");
+        model.addObject("contextPath", request.getContextPath());
+		return model;
 	}
     
     @RequestMapping(value="/listgroup")
-	public ModelAndView listGroup()
+	public ModelAndView listGroup(HttpServletRequest request)
 	{
-        ModelAndView modal = new ModelAndView("admin/action-listgroup");
-		return modal;
+        ModelAndView model = new ModelAndView("admin/action-listgroup");
+        model.addObject("contextPath", request.getContextPath());
+		return model;
 	}
     
     @RequestMapping(value="/listrole")
-	public ModelAndView listRole()
+	public ModelAndView listRole(HttpServletRequest request)
 	{
-        ModelAndView modal = new ModelAndView("admin/action-listrole");
-		return modal;
+        ModelAndView model = new ModelAndView("admin/action-listrole");
+        model.addObject("contextPath", request.getContextPath());
+		return model;
 	}
     
     @RequestMapping(value="/listuser")
-	public ModelAndView listUser()
+	public ModelAndView listUser(HttpServletRequest request)
 	{
-        ModelAndView modal = new ModelAndView("admin/action-listuser");
-		return modal;
+        ModelAndView model = new ModelAndView("admin/action-listuser");
+        model.addObject("contextPath", request.getContextPath());
+		return model;
 	}
     
     @RequestMapping(value="/liststudent")
-	public ModelAndView listStudent()
+	public ModelAndView listStudent(HttpServletRequest request)
 	{
-        ModelAndView modal = new ModelAndView("admin/action-liststudent");
-		return modal;
+        ModelAndView model = new ModelAndView("admin/action-liststudent");
+        model.addObject("contextPath", request.getContextPath());
+		return model;
 	}
     
     @RequestMapping(value="/listteacher")
-	public ModelAndView listTeacher()
+	public ModelAndView listTeacher(HttpServletRequest request)
 	{
-        ModelAndView modal = new ModelAndView("admin/action-listteacher");
-		return modal;
+        ModelAndView model = new ModelAndView("admin/action-listteacher");
+        model.addObject("contextPath", request.getContextPath());
+		return model;
 	}
     
 	/////////////////////////////////////////////////////////////////////////////////////
     //// 学科课本管理
     /////////////////////////////////////////////////////////////////////////////////////
     @RequestMapping(value="/listpublisher")
-	public ModelAndView listPublisher()
+	public ModelAndView listPublisher(HttpServletRequest request)
 	{
-        ModelAndView modal = new ModelAndView("admin/action-listpublisher");
-		return modal;
+        ModelAndView model = new ModelAndView("admin/action-listpublisher");
+        model.addObject("contextPath", request.getContextPath());
+		return model;
 	}
     
     @RequestMapping(value="/listsubject")
-	public ModelAndView listSuject()
+	public ModelAndView listSuject(HttpServletRequest request)
 	{
-        ModelAndView modal = new ModelAndView("admin/action-listsubject");
-		return modal;
+        ModelAndView model = new ModelAndView("admin/action-listsubject");
+        model.addObject("contextPath", request.getContextPath());
+		return model;
 	}
     
     @RequestMapping(value="/listtextbook")
-	public ModelAndView listTextbook()
+	public ModelAndView listTextbook(HttpServletRequest request)
 	{
-        ModelAndView modal = new ModelAndView("admin/action-listtextbook");
-		return modal;
+        ModelAndView model = new ModelAndView("admin/action-listtextbook");
+        model.addObject("contextPath", request.getContextPath());
+		return model;
 	}
     
 	/////////////////////////////////////////////////////////////////////////////////////
@@ -192,16 +204,18 @@ public class AdminController {
     //// 设备管理
     /////////////////////////////////////////////////////////////////////////////////////
     @RequestMapping(value="/listclassroom")
-	public ModelAndView listClassroom()
+	public ModelAndView listClassroom(HttpServletRequest request)
 	{
-        ModelAndView modal = new ModelAndView("admin/action-listclassroom");
-		return modal;
+        ModelAndView model = new ModelAndView("admin/action-listclassroom");
+        model.addObject("contextPath", request.getContextPath());
+		return model;
 	}
     
     @RequestMapping(value="/listrbdevice")
-	public ModelAndView listRBDevice()
+	public ModelAndView listRBDevice(HttpServletRequest request)
 	{
-        ModelAndView modal = new ModelAndView("admin/action-listrbdevice");
-		return modal;
+        ModelAndView model = new ModelAndView("admin/action-listrbdevice");
+        model.addObject("contextPath", request.getContextPath());
+		return model;
 	}
 }

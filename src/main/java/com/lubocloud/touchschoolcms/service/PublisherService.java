@@ -1,5 +1,7 @@
 package com.lubocloud.touchschoolcms.service;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,8 +49,25 @@ public class PublisherService {
 	
 	public String listAllPublisherWithJson()
 	{
-		//TODO
-		return null;
+		String JsonStr = null;
+		List<Publisher> publisherlist = new ArrayList<Publisher>();
+		publisherlist = publisherDao.listAll();
+		JsonStr ="\"List\"[";
+		if(publisherlist.size()>0 && publisherlist!=null){
+			for(int i =0; i<publisherlist.size();i++){
+				Publisher publisher = publisherlist.get(i);
+				if(publisher!=null){
+					JsonStr +="{\"name\":\""+publisher.getName()+"\",\"id\":"+publisher.getId();
+				}else{
+					return null;
+				}
+				if(i==publisherlist.size()-1){
+					JsonStr +="}";
+				}
+				JsonStr +="},";
+			}
+			JsonStr +="]";
+		}
+		return JsonStr;
 	}
-
 }

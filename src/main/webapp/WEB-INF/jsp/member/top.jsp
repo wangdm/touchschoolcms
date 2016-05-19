@@ -11,6 +11,7 @@
         <div class="top-memu">
             <span><a href="${contextPath}/member">个人空间</a></span>
             <span><a href="${contextPath}">返回首页</a></span>
+            <span><a href="${contextPath}/admin">后台管理</a></span>
             <span><a href="${contextPath}/logout">注销</a></span>
         </div>
     </div>

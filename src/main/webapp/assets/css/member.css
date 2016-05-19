@@ -38,7 +38,7 @@ body {
 }
 
 .sidebar{
-  width:200px;
+  float:left;
 }
 
 #mainbody{
@@ -76,4 +76,8 @@ body {
   font-size:18px;
   color:rgb(150,150,150);
   margin-right:15px;
+}
+
+#contentWrapper{
+  float:left;
 }

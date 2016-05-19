@@ -48,13 +48,32 @@ public class RoleService {
 	
 	public List<Role> listRole(Page page)
 	{
-		//TODO
-		return null;
+		List<Role> rolelist = roleDao.listRole(page);
+		return rolelist;
 	}
 	
 	public String listRoleWithJson(Page page)
 	{
-		//TODO
-		return null;
+		String JsonStr = null;
+		List<Role> rolelist = roleDao.listRole(page);
+		JsonStr ="[";
+		if(rolelist.size()>0 && rolelist!=null){
+			for(int i=0;i<rolelist.size();i++){
+				Role r=rolelist.get(i);
+				if(r==null){
+					return null;
+				}else{
+					JsonStr+="{\"name\":\""+r.getName()+"\",\"id\":"+r.getId();
+				}
+				
+				if(i==rolelist.size()-1){
+					JsonStr += "}";
+				}else{
+					JsonStr += "},";
+				}
+			}
+			JsonStr += "]";
+		}
+		return JsonStr;
 	}
 }

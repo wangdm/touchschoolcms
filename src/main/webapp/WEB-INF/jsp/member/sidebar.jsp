@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<div class="sidebar">
+<div class="sidebar hidden-xs col-sm-4 col-md-3  col-lg-2">
         <div class=""></div>
         <div class="sidebar-menu">
             <ul class="menu">

@@ -88,7 +88,7 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<!-- 添加上课节次对话框 -->
+<!-- 修改上课节次对话框 -->
 <div class="modal fade" id="editLessonDialog" tabindex="-1" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">

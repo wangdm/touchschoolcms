@@ -13,6 +13,36 @@
     
     <div id="mainbody" class="container">
     <c:import url="sidebar.jsp"></c:import>
+    <div id="contentWrapper" class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
+    <table class="table table-bordered table-hover">
+        <thead>
+             <tr>
+               <th>#</th>
+               <th>星期一</th>
+               <th>星期二</th>
+               <th>星期三</th>
+               <th>星期四</th>
+               <th>星期五</th>
+               <th>星期六</th>
+               <th>星期日</th>
+             </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="lesson" items="${lessonList}">
+            <tr>
+                <th>${lesson.name}</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+    </div>
     </div>
     
     <c:import url="../footer.jsp"></c:import>

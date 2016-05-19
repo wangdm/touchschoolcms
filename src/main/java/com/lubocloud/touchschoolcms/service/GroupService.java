@@ -1,5 +1,6 @@
 package com.lubocloud.touchschoolcms.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,14 +54,66 @@ public class GroupService {
 			return groupDao.findByColumn("parentGroup.gid", id);
 		}
 	}
-	
-	public String listAllChildrenGroupWithJson(int id)
+
+	public String getAllChildrenGroupWithJson(int groupId)
 	{
-		//TODO
-		String jsonStr = null;
+        String jsonStr = null;
+        if(groupId>0){
+        	Group parentGroup = groupDao.findById(groupId);
+            if(parentGroup==null){
+            	return null;
+            }
+            jsonStr = "{\"name\":\""+parentGroup.getName()+"\", \"id\":"+parentGroup.getGid();
+        }else{
+	        jsonStr = "{\"name\":\"在线学习平台\", \"id\":0";
+        }
+        List<Group> grouplist = groupDao.listAll();
+        if(grouplist!=null && grouplist.size()>0){
+        	String childStr = recursionGroup(grouplist, groupId);
+        	if(childStr!=null)
+        	{
+        		jsonStr += childStr;
+        	}
+        }
+        jsonStr += "}";
 		return jsonStr;
 	}
 	
+	private String recursionGroup(List<Group> grouplist, int parentId)
+	{
+		String jsonStr = null;
+		List<Group> childGroupList = new ArrayList<Group>();
+    	for(int i=0; i<grouplist.size(); i++)
+    	{
+    		Group childGroup = grouplist.get(i);
+    		if( (parentId<=0&&childGroup.getParentGroup()==null) || 
+    				(childGroup.getParentGroup()!=null&&parentId==childGroup.getParentGroup().getGid()) )
+    		{
+    			childGroupList.add(childGroup);
+    		}
+    	}
+		if(childGroupList.size()>0)
+		{
+			jsonStr = ", \"children\":[";
+			for(int i=0; i<childGroupList.size(); i++)
+			{
+				Group childGroup = childGroupList.get(i);
+	    		jsonStr += "{\"name\":\""+childGroup.getName()+"\",\"id\":"+childGroup.getGid();
+	    		String childStr = recursionGroup(grouplist, childGroup.getGid());
+	    		if(childStr!=null){
+	    			jsonStr += childStr;
+	    		}
+	    		if(i==childGroupList.size()-1){
+	    			jsonStr += "}";
+	    		}else{
+	    			jsonStr += "},";
+	    		}
+			}
+	    	jsonStr += "]";
+		}
+		return jsonStr;
+	}
+
 	public String listDirectChildrenGroupWithJson(int id)
 	{
 		String jsonStr = null;

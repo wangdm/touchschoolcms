@@ -20,8 +20,41 @@ public class CategoryServiceTest {
 	@Test
 	public void testAddCourseCategory() {
 		Category cat = new Category();
-		cat.setName("小学");
-		cat.setParentCategory(categoryService.getCourseCategory(0));
+		cat.setName("一年级");
+		cat.setParentCategory(categoryService.getCourseCategory(1));
+		categoryService.addCourseCategory(cat);
+		cat.setName("二年级");
+		cat.setParentCategory(categoryService.getCourseCategory(1));
+		categoryService.addCourseCategory(cat);
+		cat.setName("三年级");
+		cat.setParentCategory(categoryService.getCourseCategory(1));
+		categoryService.addCourseCategory(cat);
+		cat.setName("四年级");
+		cat.setParentCategory(categoryService.getCourseCategory(1));
+		categoryService.addCourseCategory(cat);
+		cat.setName("五年级");
+		cat.setParentCategory(categoryService.getCourseCategory(1));
+		categoryService.addCourseCategory(cat);
+		cat.setName("六年级");
+		cat.setParentCategory(categoryService.getCourseCategory(1));
+		categoryService.addCourseCategory(cat);
+		cat.setName("七年级");
+		cat.setParentCategory(categoryService.getCourseCategory(2));
+		categoryService.addCourseCategory(cat);
+		cat.setName("八年级");
+		cat.setParentCategory(categoryService.getCourseCategory(2));
+		categoryService.addCourseCategory(cat);
+		cat.setName("九年级");
+		cat.setParentCategory(categoryService.getCourseCategory(2));
+		categoryService.addCourseCategory(cat);
+		cat.setName("高一");
+		cat.setParentCategory(categoryService.getCourseCategory(3));
+		categoryService.addCourseCategory(cat);
+		cat.setName("高二");
+		cat.setParentCategory(categoryService.getCourseCategory(3));
+		categoryService.addCourseCategory(cat);
+		cat.setName("高三");
+		cat.setParentCategory(categoryService.getCourseCategory(3));
 		categoryService.addCourseCategory(cat);
 	}
 
@@ -67,7 +100,7 @@ public class CategoryServiceTest {
 
 	@Test
 	public void testGetDirectChildrenCategory() {
-		String json = categoryService.getDirectChildrenCategoryWithJson(5);
+		String json = categoryService.getDirectChildrenCategoryWithJson(1);
 		System.out.println(json);
 	}
 

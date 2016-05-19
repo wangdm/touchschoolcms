@@ -46,10 +46,10 @@
           <i class="iconfont">&#xe606;</i> 后台首页
   </div>
   
-  <div class="nav-header" data-target="#dashboard-user" data-toggle="collapse">
+  <div class="nav-header" data-target="#dashboard-user" data-toggle="collapse" aria-expanded="true">
           <i class="iconfont">&#xe601;</i> 用户管理
   </div>
-  <div id="dashboard-user" class="collapse" aria-expanded="true">
+  <div id="dashboard-user" class="collapse in" aria-expanded="true">
       <ul class="nav nav-list">
           <li data-action="listgroup"><a>用户组管理</a></li>
           <li data-action="listrole"><a>角色管理</a></li>
@@ -121,7 +121,7 @@ $(function(){
 		doAdminAction(action,$("#dashboard_content"));
 		var data = getAllChildrenCategory(0);
 	})
-    doAdminAction("${contextPath}/admin/listlesson",$("#dashboard_content"));
+    doAdminAction("${contextPath}/admin/listuser",$("#dashboard_content"));
 });
 </script>
 </body>

@@ -20,8 +20,8 @@ public class GroupServiceTest {
 	@Test
 	public void testAddGroup() {
 		Group group = new Group();
-		group.setName("高三");
-		group.setParentGroup(groupService.findGroup(11));
+		group.setName("高sifdhh");
+		group.setParentGroup(groupService.findGroup(2));
 		groupService.addGroup(group);
 	}
 
@@ -32,8 +32,8 @@ public class GroupServiceTest {
 
 	@Test
 	public void testEditGroup() {
-		Group group = groupService.findGroup(3);
-		group.setParentGroup(groupService.findGroup(0));
+		Group group = groupService.findGroup(9);
+		group.setParentGroup(groupService.findGroup(1));
 		groupService.editGroup(group);
 	}
 
@@ -50,7 +50,7 @@ public class GroupServiceTest {
 	
 	@Test
 	public void testListDirectChildrenGroup() {
-		List<Group> grouplist = groupService.listDirectChildrenGroup(3);
+		List<Group> grouplist = groupService.listDirectChildrenGroup(0);
 		if(grouplist!=null && grouplist.size()>0){
 			for(int i=0; i<grouplist.size(); i++){
 				Group group = grouplist.get(i);
@@ -61,8 +61,8 @@ public class GroupServiceTest {
 	
 	@Test
 	public void testListAllChildrenGroupWithJson() {
-		String str = groupService.listAllChildrenGroupWithJson(0);
-		System.out.println(str);
+		String JsonStr = groupService.getAllChildrenGroupWithJson(0);
+		System.out.println(JsonStr);
 	}
 	
 	@Test

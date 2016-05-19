@@ -1,5 +1,7 @@
 package com.lubocloud.touchschoolcms.service;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +41,7 @@ public class SubjectService {
 	{
 		return subjectDao.findById(subjectId);
 	}
-
+	
 	public List<Subject> listAllSubject()
 	{
 		return subjectDao.listAll();
@@ -47,8 +49,29 @@ public class SubjectService {
 	
 	public String listSubjectWithJson()
 	{
-		//TODO
-		return null;
+		String JsonStr=null;
+		List<Subject> subjectlist=new ArrayList<Subject>();
+		subjectlist=subjectDao.listAll();
+		JsonStr="\"list\":[";
+		if(subjectlist.size()>0||subjectlist!=null){
+			for(int i=0;i<subjectlist.size();i++){
+				Subject sub=subjectlist.get(i);
+				if(sub==null){
+					return null;
+				}else{
+					JsonStr+="{\"name\":\""+sub.getName()+"\",\"id\":"+sub.getId();
+				}
+				
+				if(i==subjectlist.size()-1){
+					JsonStr += "}";
+				}else{
+					JsonStr += "},";
+				}
+			}
+			JsonStr += "]";
+		}
+
+		return JsonStr;
 	}
 	
 }

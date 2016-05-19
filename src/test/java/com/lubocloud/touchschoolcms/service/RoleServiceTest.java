@@ -9,7 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.lubocloud.touchschoolcms.entity.Role;
-
+import com.lubocloud.touchschoolcms.utils.Page;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath*:/spring-*.xml")
 public class RoleServiceTest {
@@ -20,39 +20,64 @@ public class RoleServiceTest {
 	@Test
 	public void testAddRole() {
 		Role r = new Role();
-		r.setName("学生");
+		r.setName("老师10");
 		roleService.addRole(r);
 	}
 
 	@Test
 	public void testDelRole() {
-		roleService.delRole(1);
+		roleService.delRole(0);
 	}
 
 	@Test
 	public void testFindRole() {
-		Role r = roleService.findRole(1);
-		if(r!=null){
-			System.out.println("id: "+r.getId()+"\tname: "+r.getName());
-		}
-	}
-
-	@Test
-	public void testFindAllRole() {
-		List<Role> rolelist = roleService.listAllRole();
-		if(rolelist!=null){
-			for(int i=0; i<rolelist.size(); i++)
-			{
-				Role r = rolelist.get(i);
-				System.out.println("id: "+r.getId()+"\tname: "+r.getName());
-			}
+		Role r = roleService.findRole(3);
+		if(r !=null){
+			System.out.println("id:"+r.getId()+"\tname:"+r.getName());
 		}
 	}
 
 	@Test
 	public void testEditRole() {
-		Role r = roleService.findRole(1);
-		r.setName("家长");
-		roleService.editRole(r);
+		Role r = roleService.findRole(3);
+		if(r !=null){
+			r.setName("深圳");
+			roleService.editRole(r);
+		}
 	}
+
+	@Test
+	public void testListAllRole() {
+		List<Role> rolelist = roleService.listAllRole();
+		if(rolelist !=null && rolelist.size()>0){
+			for(int i=0;i<rolelist.size();i++){
+				Role r = rolelist.get(i);
+				System.out.println("id:"+r.getId()+"\tname:"+r.getName());
+			}
+		}
+	}
+
+	@Test
+	public void testListRole() {
+		Page page = new Page();
+		page.setCurrentPage(0);
+		List<Role> rolelist = roleService.listRole(page);
+		if(rolelist.size()>0 && rolelist !=null){
+			for(int i=0; i<rolelist.size();i++){
+				Role r = rolelist.get(i);
+				if(r !=null){
+					System.out.println("id:"+r.getId()+"\tname:"+r.getName());
+				}
+			}
+		}
+	}
+
+	@Test
+	public void testListRoleWithJson() {
+		Page page = new Page();
+		page.setCurrentPage(0);
+		String JsonStr = roleService.listRoleWithJson(page);
+		System.out.println(JsonStr);
+	}
+
 }

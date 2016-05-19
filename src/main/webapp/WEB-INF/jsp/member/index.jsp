@@ -13,6 +13,7 @@
     
     <div id="mainbody" class="container">
     <c:import url="sidebar.jsp"></c:import>
+
     </div>
     
     <c:import url="../footer.jsp"></c:import>
